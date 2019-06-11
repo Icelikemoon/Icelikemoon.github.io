@@ -5,17 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>我的GitHub主页</title>
     <style>
         body {
-            background-image: url(./previewFix.jpg);
+            background-image: url(./img/previewFix.jpg);
             background-size: 100%;
         }
     </style>
 </head>
 
 <body>
-
+    <!-- BGM音频开始 -->
+    <audio src="./img/大坪直树 - Into the Battlefield.mp3" id="vd" autoplay controls></audio>
+    <!-- BGM音频结束 -->
+    <script>
+        myAudio.oncanplaythrough = function () {
+            myAudio.play();
+        };
+    </script>
+    <!-- <video controls muted autoplay>
+        <source src="ifthisisthelove.mp3" type="video/mp4">
+        <source src="ifthisisthelove.ogg" type="video/ogg">
+    </video>
+    <script>
+        function toggleSound() {
+            var music = document.getElementById("vd");//获取ID  
+            // console.log(music);
+            // console.log(music.paused);
+            if (music.paused) { //判读是否播放  
+                music.paused = ture;
+                music.play(); //没有就播放 
+            }
+        }
+        setInterval("toggleSound()", 1);
+    </script> -->
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script>
         $(function () {
@@ -44,10 +67,10 @@
                     }
                 })
             }
-            bg_ajax();
-            var bg_time = setInterval(function(){
-                bg_ajax();
-            },180000)
+            // bg_ajax();
+            // var bg_time = setInterval(function () {
+            //     bg_ajax();
+            // }, 180000)
         })
     </script>
 </body>
