@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(./previewFix.jpg);
+            background-size: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            //设置body的背景图
+            function bg_ajax() {
+                $.ajax({
+                    /*
+                    随机二次元图片获取
+                    原接口地址文档地址，此接口只是整理了网上的免费接口，并把文档调整了格式
+                    请求地址:http://acg.bakayun.cn/randbg.php
+                    请求方法：get
+                    请求参数：Type,t,https
+                    */
+                    type: 'get',
+                    url: 'http://acg.bakayun.cn/randbg.php',
+                    data: {
+                        Type: 'json',
+                        t: 'dfproject'
+                    },
+                    dataType: 'json',
+                    success: function (backData) {
+                        console.log(backData);
+                        $('body').css({
+                            backgroundImage: 'url("' + backData.ImgUrl + '")'
+                        });
+                    }
+                })
+            }
+            bg_ajax();
+            var bg_time = setInterval(function(){
+                bg_ajax();
+            },180000)
+        })
+    </script>
+</body>
+
+</html>
