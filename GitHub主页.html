@@ -11,28 +11,34 @@
             background-image: url(./img/previewFix.jpg);
             background-size: 100%;
         }
-
-        #vd {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            opacity: 0.3;
-        }
-
     </style>
 </head>
 
 <body>
-
-    <!-- <div class="audio"></div> -->
     <!-- BGM音频开始 -->
     <audio src="./img/大坪直树 - Into the Battlefield.mp3" id="vd" autoplay controls></audio>
+    <!-- BGM音频结束 -->
     <script>
         myAudio.oncanplaythrough = function () {
             myAudio.play();
         };
     </script>
-    <!-- BGM音频结束 -->
+    <!-- <video controls muted autoplay>
+        <source src="ifthisisthelove.mp3" type="video/mp4">
+        <source src="ifthisisthelove.ogg" type="video/ogg">
+    </video>
+    <script>
+        function toggleSound() {
+            var music = document.getElementById("vd");//获取ID  
+            // console.log(music);
+            // console.log(music.paused);
+            if (music.paused) { //判读是否播放  
+                music.paused = ture;
+                music.play(); //没有就播放 
+            }
+        }
+        setInterval("toggleSound()", 1);
+    </script> -->
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script>
         $(function () {
@@ -54,20 +60,17 @@
                     },
                     dataType: 'json',
                     success: function (backData) {
-                        // console.log(backData);
+                        console.log(backData);
                         $('body').css({
                             backgroundImage: 'url("' + backData.ImgUrl + '")'
                         });
                     }
                 })
             }
-            bg_ajax();
-            var bg_time = setInterval(function () {
-                bg_ajax();
-            }, 180000);
-            $('audio').on('click', function () {
-                $(this).attr('src', 'https://www.lori.tw/acg.php ')
-            });
+            // bg_ajax();
+            // var bg_time = setInterval(function () {
+            //     bg_ajax();
+            // }, 180000)
         })
     </script>
 </body>
