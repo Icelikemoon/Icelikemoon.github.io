@@ -11,29 +11,25 @@
             background-image: url(./img/previewFix.jpg);
             background-size: 100%;
         }
-
         #vd {
             position: fixed;
             top: 10px;
             left: 10px;
             opacity: 0.3;
         }
-
     </style>
 </head>
 
 <body>
-
-    <!-- <div class="audio"></div> -->
     <!-- BGM音频开始 -->
     <!-- <audio src="./img/大坪直树 - Into the Battlefield.mp3" id="vd" autoplay controls loop></audio> -->
     <audio src="https://www.lori.tw/acg.php" id="vd" autoplay controls loop preload="auto metadata none"></audio>
+    <!-- BGM音频结束 -->
     <script>
         myAudio.oncanplaythrough = function () {
             myAudio.play();
         };
     </script>
-    <!-- BGM音频结束 -->
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script>
         $(function () {
@@ -55,7 +51,7 @@
                     },
                     dataType: 'json',
                     success: function (backData) {
-                        // console.log(backData);
+                        console.log(backData);
                         $('body').css({
                             backgroundImage: 'url("' + backData.ImgUrl + '")'
                         });
@@ -65,10 +61,7 @@
             bg_ajax();
             var bg_time = setInterval(function () {
                 bg_ajax();
-            }, 180000);
-            $('audio').on('click', function () {
-                $(this).attr('src', 'https://www.lori.tw/acg.php ')
-            });
+            }, 180000)
         })
     </script>
 </body>
